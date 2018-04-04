@@ -6,10 +6,10 @@
   (defvar current_state start_state)
 
   (dotimes (i (length matrix))
-    (setq ch (intern (subseq test_string i (+ i 1))))
+    (setq ch (subseq test_string i (+ i 1)))
     (setq current_list (nth current_state matrix))
     (dotimes (j (length current_list))
-      (if (= ch (nth j current_list))
+      (if (eq (nth j current_list) (intern ch))
         (setq current_state j)
         (if (= j (- (length current_list) 1)) nil)
       )
